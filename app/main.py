@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.jobs import router as jobs_router
+from app.api.trends import router as trends_router
 
 app = FastAPI(
     title="AI Job Analyzer",
@@ -17,6 +18,7 @@ app.add_middleware(
 )
 
 app.include_router(jobs_router)
+app.include_router(trends_router)
 
 
 @app.get("/hello", tags=["Hello"])
